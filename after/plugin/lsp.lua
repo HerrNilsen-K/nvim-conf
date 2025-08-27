@@ -83,6 +83,8 @@ vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
 	end,
 })
 
+vim.keymap.set("n", "<leader>i", vim.lsp.buf.format, { buffer = 0 })
+
 --cmake
 require('lspconfig').cmake.setup{
 
@@ -91,4 +93,8 @@ require('lspconfig').cmake.setup{
 --glsl
 require('lspconfig').glsl_analyzer.setup{
 
+}
+
+require("mason-lspconfig").setup {
+    automatic_enable = true
 }

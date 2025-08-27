@@ -24,7 +24,7 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { noremap = true })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { noremap = true })
 
 -- Remove search highlighting
-vim.keymap.set("n", "<leader>/", ":nohlsearch<CR>", { noremap = true, silent = true })
+-- vim.keymap.set("n", "<leader>/", ":nohlsearch<CR>", { noremap = true, silent = true })
 
 -- Spell checking
 vim.keymap.set("n", "<leader>s", ":set nospell<CR>", { noremap = true })
@@ -36,3 +36,13 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- Format buffer according to LSP rules
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+
+vim.o.hlsearch = true
+vim.keymap.set('n', '<CR>', function()
+  if vim.v.hlsearch == 1 then
+    return ":nohlsearch<CR>"
+  else
+    return "<CR>"
+  end
+end, { expr = true, silent = true })
+

@@ -22,6 +22,30 @@ require("lazy").setup({
 	{
 		"nvim-treesitter/nvim-treesitter", branch = 'master', lazy = false, build = ":TSUpdate"
 	},
+
+	--Neo-tree
+	{
+		{
+			"nvim-neo-tree/neo-tree.nvim",
+			branch = "v3.x",
+			dependencies = {
+				"nvim-lua/plenary.nvim",
+				"MunifTanjim/nui.nvim",
+				"nvim-tree/nvim-web-devicons", -- optional, but recommended
+			},
+			lazy = false, -- neo-tree will lazily load itself
+			opts = {
+				close_if_last_window = true,
+				window = {
+					position = "right",
+				},
+				filesystem = {
+					follow_current_file = { enabled = true },
+				},
+
+			},
+		}
+	},
 	"nvim-treesitter/playground",
 
 	-- Harpoon
@@ -29,9 +53,6 @@ require("lazy").setup({
 
 	-- Better undoing
 	"mbbill/undotree",
-
-	-- NerdTree
-	"preservim/nerdtree",
 
 	-- Visual related plugins
 	{
